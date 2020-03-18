@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 
 
 /**
@@ -93,6 +94,18 @@ public class LogInFragment extends DialogFragment {
                 }
             }
         });
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        String sMail = sharedPref.getString("Mail","Password");
+        String sPass = sharedPref.getString("Pass","E-Mail");
+        EditText mail= rootView.findViewById(R.id.email1);
+        EditText pass= rootView.findViewById(R.id.password1);
+        if (!sMail.equals("E-Mail")){
+            mail.setText(sMail, TextView.BufferType.EDITABLE);
+        }
+        if (!sPass.equals("Pass")){
+            pass.setText(sPass, TextView.BufferType.EDITABLE);
+        }
+
         return rootView;
     }
 
