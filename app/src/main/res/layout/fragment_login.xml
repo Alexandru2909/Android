@@ -23,16 +23,16 @@
             tools:srcCompat="@tools:sample/avatars[5]" />
 
         <EditText
-            android:id="@+id/editText6"
-            android:layout_marginTop="50dp"
+            android:id="@+id/email1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/password1"
             android:hint="Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:inputType="textPassword" />
 
         <Switch
-            android:id="@+id/switch2"
+            android:id="@+id/switchremme1"
             android:layout_marginTop="50dp"
             android:gravity="right"
             android:layout_width="match_parent"

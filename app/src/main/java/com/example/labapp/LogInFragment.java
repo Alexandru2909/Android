@@ -1,5 +1,7 @@
 package com.example.labapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -9,6 +11,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 
 
 /**
@@ -58,17 +63,38 @@ public class LogInFragment extends DialogFragment {
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.fragment_login, null));
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+        Button button = (Button) rootView.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                EditText mail= getView().findViewById(R.id.email1);
+                EditText pass= getView().findViewById(R.id.password1);
+                if(((Switch) getView().findViewById(R.id.switchremme1)).isChecked()){
+                    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("Mail",mail.getText().toString());
+                    editor.putString("Pass",pass.getText().toString());
+                    editor.commit();
+                }
+            }
+        });
+        return rootView;
     }
+
+
 }

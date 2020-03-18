@@ -10,6 +10,7 @@ import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,22 +19,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Console;
+
 public class MainActivity extends AppCompatActivity {
 
-    public boolean logInClick(MenuItem  v){
+    public boolean logInMenuClick(MenuItem  v){
         DialogFragment newFragment = new LogInFragment();
         newFragment.show(getSupportFragmentManager(), "LogIn");
-
         return true;
     }
-    public boolean newCarClick(MenuItem  v){
+    public boolean newCarMenuClick(MenuItem  v){
         Intent intent = new Intent(this, AddCar.class);
         startActivity(intent);
         return true;
-
     }
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
