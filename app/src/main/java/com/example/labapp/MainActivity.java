@@ -37,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         return true;
     }
+    public boolean findNearMenuClick(MenuItem  v){
+        Intent intent = new Intent(this, AddCar.class);
+        startActivity(intent);
+        return true;
+    }
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //
@@ -160,5 +165,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    public void newNearYou(MenuItem item) {
+        Intent intent = new Intent(this, NearYou.class);
+        startActivity(intent);
+    }
 }
