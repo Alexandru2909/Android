@@ -29,12 +29,12 @@ public class NearYou extends AppCompatActivity {
         SensorManager sensorManager;
         sensorManager = (SensorManager) getSystemService(this.SENSOR_SERVICE);
         List<Sensor> deviceSensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
+        int i=1;
         for (Sensor s : deviceSensors){
             TextView x = new TextView(this);
             x.setText(s.getName());
-            x.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-            x.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-            x.setId(R.id.parent+1);
+            x.setId(R.id.parent+i);
+            i++;
             System.out.println(x.getText());
             myLayout.addView(x);
         }
